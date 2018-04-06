@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Email Builder CSS -->
+		<link rel="stylesheet" href="gha-email-builder.css">
+
+		<!-- Email Builder JS -->
+		<script type="text/javascript" src="gha-email-builder.js"></script>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+		<title>GHA Email Builder</title>
+		<link rel="icon" type="image/png" href="favicon.ico" sizes="32x32" />
+	</head>
+	<body>
+
+		<!--
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						Header
+					</div>
+				</div>
+			</div>
+		</header>
+		-->
+
+		<!-- Email Preheader Input -->
+		<section>
+			<div class="container my-3">
+				<div class="row">
+					<div class="col">
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="emailPreheaderUserSelection">Select Preheader Module</label>
+							</div>
+							<select onchange="emailPreheaderUserSelection()" class="custom-select" id="emailPreheaderUserSelection">
+								<option value="none" selected>None</option>
+								<option value="preheaderDefault">Default Preheader</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="userDefinedSnippetText">Snippet Text:</label>
+							<textarea class="form-control" rows="1" id="userDefinedSnippetText"></textarea>
+						</div>
+						<button onclick="preheaderReplacementButton()" type="button" class="btn btn-primary">Submit Preheader Content</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<hr>
+
+		<!-- Email Header Input -->
+		<section>
+			<div class="container my-3">
+				<div class="row">
+					<div class="col">
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="emailHeaderUserSelection">Select Header Module</label>
+							</div>
+							<select onchange="emailHeaderUserSelection()" class="custom-select" id="emailHeaderUserSelection">
+								<option value="none" selected>None</option>
+								<option value="headerDefault">Default Header</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="userDefinedCampaignName">Campaign Name:</label>
+							<textarea class="form-control" rows="1" id="userDefinedCampaignName"></textarea>
+						</div>
+						<button onclick="headerReplacementButton()" type="button" class="btn btn-primary">Submit Header Content</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<hr>
+
+		<!-- Email Hero Input -->
+		<section>
+			<div class="container my-3">
+				<div class="row">
+					<div class="col">
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="emailHeroUserSelection">Select Hero Module</label>
+							</div>
+							<select onchange="emailHeroUserSelection()" class="custom-select" id="emailHeroUserSelection">
+								<option value="none" selected>None</option>
+								<option value="heroDefault">Default Hero</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="userDefinedHeroImage">Hero Image:</label>
+							<textarea class="form-control" rows="1" id="userDefinedHeroImage"></textarea>
+						</div>
+						<button onclick="heroReplacementButton()" type="button" class="btn btn-primary">Submit Hero Content</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<hr>
+
+		<!-- Email Body Input -->
+		<section>
+			<div class="container my-3">
+				<div class="row">
+					<div class="col">
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="emailBodyUserSelection">Select Body Module</label>
+							</div>
+							<select onchange="emailBodyUserSelection()" class="custom-select" id="emailBodyUserSelection">
+								<option value="none" selected>None</option>
+								<option value="bodyDefault">Default Body</option>
+								<option value="bodyAlt1">Alternate Body</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="userDefinedHeadlineText">Headline Text:</label>
+							<textarea class="form-control" rows="1" id="userDefinedHeadlineText"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="userDefinedArticleText">Article Text:</label>
+							<textarea class="form-control" rows="3" id="userDefinedArticleText"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="userDefinedCtaText">CTA Text:</label>
+							<textarea class="form-control" rows="1" id="userDefinedCtaText"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="userDefinedCtaUrl">CTA URL:</label>
+							<textarea class="form-control" rows="1" id="userDefinedCtaUrl"></textarea>
+						</div>
+						<button onclick="bodyReplacementButton()" type="button" class="btn btn-primary">Submit Body Content</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<hr>
+
+		<!-- Email Footer Input -->
+		<section>
+			<div class="container my-3">
+				<div class="row">
+					<div class="col">
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="emailFooterUserSelection">Select Footer Module</label>
+							</div>
+							<select onchange="emailFooterUserSelection()" class="custom-select" id="emailFooterUserSelection">
+								<option value="none" selected>None</option>
+								<option value="footerDefault">Default Footer</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<hr>
+
+		<section>
+			<div class="container">
+				<div class="row mb-3">
+					<div class="col">
+						<button onclick="desktopDevice()" type="button" class="btn btn-primary">Desktop Layout</button>
+						<button onclick="tabletDevice()" type="button" class="btn btn-primary">Tablet Layout</button>
+						<button onclick="mobileDevice()" type="button" class="btn btn-primary">Mobile Layout</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div id="template-preview" class="desktop-device-preview">
+							<div id="preview-temp-container">
+								<div id="emailPreheaderOutput"></div>
+								<div id="emailHeaderOutput"></div>
+								<div id="emailHeroOutput"></div>
+								<div id="emailBodyOutput"></div>
+								<div id="emailFooterOutput"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<div class="container my-3">
+				<div class="row">
+					<div class="col-6">
+						<div class="input-group mb-2">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Template Name</span>
+							</div>
+							<input type="text" id="file-name" class="form-control" />
+						</div>
+					</div>
+					<div class="col-6">
+						<button onclick="downloadInnerHtml()" type="button" class="btn btn-primary">Download Template</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						Footer
+					</div>
+				</div>
+			</div>
+		</footer>
+		-->
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<!-- JavaScript to download block of HTML -->
+		<script>
+			// Create a function that 1) defines a file name, and 2) returns a block of HTML to be downloaded
+			function downloadInnerHtml() {
+				// Find the first <input> element using the getElementsByTagName() method, return the content using the value propery, and assign to the fileName variable
+				var fileName = document.getElementsByTagName('input')[0].value;
+
+				// Concatenate the user selected blocks of HTML with the static blocks of HTML (defined as string literals in gha-email-builder.js) to create a full template
+				var emailTemplate = templateShellBlock0 + emailPreheaderInput.innerHTML + templateShellBlock1 + emailHeaderInput.innerHTML + emailHeroInput.innerHTML + emailBodyInput.innerHTML + templateShellBlock2 + emailFooterInput.innerHTML + templateShellBlock3;
+
+				// Create a new <a> tag using the createElement() method and assign to downloadLink variable
+				var downloadLink = document.createElement('a');
+				
+				// Set the download attribute of the link so that it uses the user defined name
+				downloadLink.setAttribute('download', fileName);
+				
+				// Set the href attribute of the link
+				// The data URI scheme is a Uniform Resource Identifier (URI) scheme that provides a way to include data in-line in web pages as if they were external resources.
+				// The The encodeURIComponent() function encodes the special characters of a URI component
+				// More infomration about the data URI scheme available here: https://en.wikipedia.org/wiki/Data_URI_scheme
+				// More infomration about the encodeURIComponent() function available here: https://www.w3schools.com/jsref/jsref_encodeURIComponent.asp
+				downloadLink.setAttribute('href', 'data:text/html;charset=UTF-8,' + encodeURIComponent(emailTemplate));
+
+				// Simulate a mouse-click on the link using the click() method
+				downloadLink.click();
+			}
+		</script>
+
+		<!-- JavaScript to define the HTML to be downloaded by the above script -->
+		<script type="text/javascript">
+			// Create a new <div> tag using the createElement() method and assign to emailPreheaderInput variable
+			var emailPreheaderInput = document.createElement('div');
+			function emailPreheaderUserSelection() {
+				// Assign the selected value of the emailPreheaderUserSelection dropdown menu to emailPreheaderUserSelection variable
+				var emailPreheaderUserSelection = document.getElementById('emailPreheaderUserSelection').value;
+
+				// Assign the value of the emailPreheaderUserSelection div to the emailPreheaderInput variable using the innerHTML method
+				emailPreheaderInput.innerHTML = document.getElementById(emailPreheaderUserSelection).innerHTML;
+
+				// Add the contents of the emailPreheaderInput <div> to the emailPreheaderOutput <div> using the appendChild() method
+				document.getElementById('emailPreheaderOutput').appendChild(emailPreheaderInput);
+			}
+			// Create a new <div> tag using the createElement() method and assign to emailHeaderInput variable
+			var emailHeaderInput = document.createElement('div');
+			function emailHeaderUserSelection() {
+				// Assign the selected value of the emailHeaderUserSelection dropdown menu to emailHeaderUserSelection variable
+				var emailHeaderUserSelection = document.getElementById('emailHeaderUserSelection').value;
+
+				// Assign the contents of the emailHeaderUserSelection div to the emailHeaderInput variable using the innerHTML method
+				emailHeaderInput.innerHTML = document.getElementById(emailHeaderUserSelection).innerHTML;
+
+				// Add the contents of the emailHeaderInput <div> to the emailHeaderOutput <div> using the appendChild() method
+				document.getElementById('emailHeaderOutput').appendChild(emailHeaderInput);
+			}
+			// Create a new <div> tag using the createElement() method and assign to emailHeroInput variable
+			var emailHeroInput = document.createElement('div');
+			function emailHeroUserSelection() {
+				// Assign the selected value of the emailHeroUserSelection dropdown menu to emailHeroUserSelection variable
+				var emailHeroUserSelection = document.getElementById('emailHeroUserSelection').value;
+
+				// Assign the contents of the emailHeroUserSelection div to the emailHeroInput variable using the innerHTML method
+				emailHeroInput.innerHTML = document.getElementById(emailHeroUserSelection).innerHTML;
+
+				// Add the contents of the emailHeroInput <div> to the emailHeroOutput <div> using the appendChild() method
+				document.getElementById('emailHeroOutput').appendChild(emailHeroInput);
+			}
+			// Create a new <div> tag using the createElement() method and assign to emailBodyInput variable
+			var emailBodyInput = document.createElement('div');
+			function emailBodyUserSelection() {
+				// Assign the selected value of the emailBodyUserSelection dropdown menu to emailBodyUserSelection variable
+				var emailBodyUserSelection = document.getElementById('emailBodyUserSelection').value;
+
+				// Assign the contents of the emailBodyUserSelection div to the emailBodyInput variable using the innerHTML method
+				emailBodyInput.innerHTML = document.getElementById(emailBodyUserSelection).innerHTML;
+
+				// Add the contents of the emailBodyInput <div> to the emailBodyOutput <div> using the appendChild() method
+				document.getElementById('emailBodyOutput').appendChild(emailBodyInput);
+			}
+			// Create a new <div> tag using the createElement() method and assign to emailFooterInput variable
+			var emailFooterInput = document.createElement('div');
+			function emailFooterUserSelection() {
+				// Assign the selected value of the emailFooterUserSelection dropdown menu to emailFooterUserSelection variable
+				var emailFooterUserSelection = document.getElementById('emailFooterUserSelection').value;
+
+				// Assign the contents of the emailFooterUserSelection div to the emailFooterInput variable using the innerHTML method
+				emailFooterInput.innerHTML = document.getElementById(emailFooterUserSelection).innerHTML;
+
+				// Add the contents of the emailFooterInput <div> to the emailFooterOutput <div> using the appendChild() method
+				document.getElementById('emailFooterOutput').appendChild(emailFooterInput);
+			}
+		</script>
+
+		<!-- Change size of #template-preview <div> -->
+		<script>
+			function desktopDevice() {
+				document.getElementById("template-preview").classList.add('desktop-device-preview');
+				document.getElementById("template-preview").classList.remove('full-screen-preview');
+				document.getElementById("template-preview").classList.remove('tablet-device-preview');
+				document.getElementById("template-preview").classList.remove('mobile-device-preview');
+			}
+			function tabletDevice() {
+				document.getElementById("template-preview").classList.add('tablet-device-preview');
+				document.getElementById("template-preview").classList.remove('full-screen-preview');
+				document.getElementById("template-preview").classList.remove('desktop-device-preview');
+				document.getElementById("template-preview").classList.remove('mobile-device-preview');
+			}
+			function mobileDevice() {
+				document.getElementById("template-preview").classList.add('mobile-device-preview');
+				document.getElementById("template-preview").classList.remove('full-screen-preview');
+				document.getElementById("template-preview").classList.remove('desktop-device-preview');
+				document.getElementById("template-preview").classList.remove('tablet-device-preview');
+			}
+		</script>
+
+		<!-- Grab input from textarea and use to replace a string somewhere else in the document -->
+		<script type="text/javascript">
+			function preheaderReplacementButton() {
+				var inputReplacementValue = document.getElementById("userDefinedSnippetText").value;
+				var stringToBeReplaced = document.getElementById("snippetText").innerHTML; 
+				var stringToReplaceWith = stringToBeReplaced.replace(stringToBeReplaced, inputReplacementValue);
+				document.getElementById("snippetText").innerHTML = stringToReplaceWith;
+			}
+			function headerReplacementButton() {
+				var inputReplacementValue = document.getElementById("userDefinedCampaignName").value;
+				var stringToBeReplaced = document.getElementById("campaignName").innerHTML; 
+				var stringToReplaceWith = stringToBeReplaced.replace(stringToBeReplaced, inputReplacementValue);
+				document.getElementById("campaignName").innerHTML = stringToReplaceWith;
+			}
+			function heroReplacementButton() {
+				var inputReplacementSrc = document.getElementById("userDefinedHeroImage").value;
+				var srcToBeReplaced = document.getElementById("heroImage").src; 
+				var srcToReplaceWith = srcToBeReplaced.replace(srcToBeReplaced, inputReplacementSrc);
+				document.getElementById("heroImage").setAttribute("src", srcToReplaceWith);
+			}
+			function bodyReplacementButton() {
+				var inputReplacementValue = document.getElementById("userDefinedHeadlineText").value;
+				var stringToBeReplaced = document.getElementById("headlineText").innerHTML; 
+				var stringToReplaceWith = stringToBeReplaced.replace(stringToBeReplaced, inputReplacementValue);
+				document.getElementById("headlineText").innerHTML = stringToReplaceWith;
+
+				var inputReplacementValue = document.getElementById("userDefinedArticleText").value;
+				var stringToBeReplaced = document.getElementById("articleText").innerHTML; 
+				var stringToReplaceWith = stringToBeReplaced.replace(stringToBeReplaced, inputReplacementValue);
+				document.getElementById("articleText").innerHTML = stringToReplaceWith;
+
+				var inputReplacementValue = document.getElementById("userDefinedCtaText").value;
+				var stringToBeReplaced = document.getElementById("ctaText").innerHTML; 
+				var stringToReplaceWith = stringToBeReplaced.replace(stringToBeReplaced, inputReplacementValue);
+				document.getElementById("ctaText").innerHTML = stringToReplaceWith;
+
+				var inputReplacementHref = document.getElementById("userDefinedCtaUrl").value;
+				var hrefToBeReplaced = document.getElementById("ctaText").href; 
+				var hrefToReplaceWith = hrefToBeReplaced.replace(hrefToBeReplaced, inputReplacementHref);
+				var classNameElements = document.getElementsByClassName("ctaUrl");
+				for (var i = 0; 1 < classNameElements.length; i++) {
+			    	classNameElements[i].setAttribute("href", hrefToReplaceWith);
+				}
+			}
+		</script>
+
+<!-- #############################
+# Blank <div> for "none" options #
+############################### -->
+<div id="none" style="display: none;"></div>
+
+<!-- ###########################
+# Email Preheader HTML Modules #
+############################ -->
+<div id="preheaderDefault" style="display: none;">
+
+	<!-- /// Begin Email Preheader Table -->
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 8px; padding-left: 4px; padding-right: 4px; padding-top: 8px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" valign="top" style="color: #888888; font-family: 'Century Gothic', Arial, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left; vertical-align: top;">
+							<span id="snippetText" class="display-block" style="display: inline-block; white-space: nowrap;">
+								Preheader text goes here
+						</td>
+						<td align="right" valign="top" style="color: #888888; font-family: 'Century Gothic', Arial, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: right; vertical-align: top;">
+							<span class="display-block" style="display: inline-block; white-space: nowrap;">
+								Is this email not displaying correctly?
+							</span>
+							<span class="display-block" style="display: inline-block; white-space: nowrap;">
+								<a href="${clickthrough('view_online')}" target="_blank" title="${SUPP_VIEW_ONLINE}" style="color: #888888; text-decoration: underline;">
+									View in browser
+								</a>
+							</span>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End Email Preheader Table \\\ -->
+
+</div>
+<div id="preheaderAlt1" style="display: none;">
+
+	preheaderAlt1
+
+</div>
+<div id="preheaderAlt2" style="display: none;">
+
+	preheaderAlt2
+
+</div>
+
+<!-- ########################
+# Email Header HTML Modules #
+######################### -->
+<div id="headerDefault" style="display: none;">
+
+	<!-- ||| Begin Header Module -->
+	<table bgcolor="#000000" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #000000; border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 25px; padding-left: 25px; padding-right: 25px; padding-top: 25px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" valign="middle" width="155" style="text-align: left; vertical-align: middle; width: 155px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+								<tr>
+									<td align="left" valign="middle" width="140" style="text-align: left; padding-right: 15px; vertical-align: middle; width: 140px;">
+										<a href="${clickthrough('discovery_logo')}" target="_blank" title="DISCOVERY" style="text-decoration: none;">
+											<img src="http://static.cdn.responsys.net/i2/responsysimages/dscvry/contentlibrary/gha_limited_time_offers/title_images/discovery-logo-315x40-01.png" alt="DISCOVERY" width="140" style="border: none; color: #ffffff; display: block; font-family: 'Century Gothic', Arial, sans-serif; font-size: 16px; font-weight: 400; max-width: 140px; text-align: left; text-decoration: none; vertical-align: middle; width: 100%;" />
+										</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<!--[if (gte mso 9)|(IE)]>
+						<td align="left" valign="middle" width="495">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tr>
+						<![endif]-->
+						<td id="campaignName" align="left" valign="middle" width="auto" style="border-left: 1px solid #99a49c; color: #ae9a64; font-family: 'Century Gothic', Arial, sans-serif; font-size: 20px; font-style: normal; font-weight: 400; line-height: 25px; padding-left: 15px; text-align: left; vertical-align: middle; width: auto;">
+							CAMPAIGN NAME
+						</td>
+						<!--[if (gte mso 9)|(IE)]>
+								</tr>
+							</table>
+						</td>
+						<![endif]-->
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End Header Module ||| -->
+
+	<!-- ###############################
+	<#if API_MEMBERSHIP_LEVEL == 'GOLD'>
+	################################ -->
+
+	<!-- ||| Begin Module: Account Details - Gold Level Members -->
+	<table bgcolor="#ad9a63" border="0" cellpadding="0" cellspacing="0" width="100%" class="gold-level-background-linear-gradient" style="background-color: #ad9a63; border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 15px; padding-left: 25px; padding-right: 25px; padding-top: 15px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" valign="middle" width="auto" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; line-height: 15px; text-align: left; vertical-align: middle; width: auto;">
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								F_NAME
+							</span>
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								L_NAME
+							</span>
+							<span class="display-none">&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block;">
+								<a href="${clickthrough('membership_card_number')}" target="_blank" title="#123456789" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">#123456789</a>
+							</span>
+							<br class="display-none" />
+							<span style="display: inline-block; white-space: nowrap;">
+								GOLD LEVEL
+							</span>
+							<span class="display-none">&#160;&#160;|&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block; white-space: nowrap;">
+								<a href="${clickthrough('membership_benefits')}" target="_blank" title="MEMBERSHIP BENEFITS" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: underline;">MEMBERSHIP BENEFITS</a>
+							</span>
+						</td>
+						<td align="right" valign="middle" width="125" style="text-align: right; margin-left: auto; margin-right: 0; vertical-align: middle; width: 125px;">
+							<img src="http://via.placeholder.com/300x100" width="150" style="border: none; display: block; margin-left: auto; margin-right: 0; max-width: 150px; text-align: right; vertical-align: middle; width: 100%;" />
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End Module: Account Details - Gold Level Members ||| -->
+
+	<!-- #######################################
+	<#elseif API_MEMBERSHIP_LEVEL == 'PLATINUM'>
+	######################################## -->
+
+	<!-- ||| Begin Module: Account Details - Platinum Level Members -->
+	<table bgcolor="#c8c8c7" border="0" cellpadding="0" cellspacing="0" width="100%" class="platinum-level-background-linear-gradient" style="background-color: #c8c8c7; border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 15px; padding-left: 25px; padding-right: 25px; padding-top: 15px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" valign="middle" width="auto" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; line-height: 15px; text-align: left; vertical-align: middle; width: auto;">
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								F_NAME
+							</span>
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								L_NAME
+							</span>
+							<span class="display-none">&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block;">
+								<a href="${clickthrough('membership_card_number')}" target="_blank" title="#123456789" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">#123456789</a>
+							</span>
+							<br class="display-none" />
+							<span style="display: inline-block; white-space: nowrap;">
+								PLATINUM LEVEL
+							</span>
+							<span class="display-none">&#160;&#160;|&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block; white-space: nowrap;">
+								<a href="${clickthrough('membership_benefits')}" target="_blank" title="MEMBERSHIP BENEFITS" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: underline;">MEMBERSHIP BENEFITS</a>
+							</span>
+						</td>
+						<td align="right" valign="middle" width="125" style="text-align: right; margin-left: auto; margin-right: 0; vertical-align: middle; width: 125px;">
+							<img src="http://via.placeholder.com/300x100" width="150" style="border: none; display: block; margin-left: auto; margin-right: 0; max-width: 150px; text-align: right; vertical-align: middle; width: 100%;" />
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End Module: Account Details - Platinum Level Members ||| -->
+
+	<!-- ####################################
+	<#elseif API_MEMBERSHIP_LEVEL == 'BLACK'>
+	##################################### -->
+
+	<!-- ||| Begin Module: Account Details - Black Level Members -->
+	<table bgcolor="#000000" border="0" cellpadding="0" cellspacing="0" width="100%" class="black-level-background-linear-gradient" style="background-color: #000000; border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 15px; padding-left: 25px; padding-right: 25px; padding-top: 15px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" valign="middle" width="auto" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; line-height: 15px; text-align: left; vertical-align: middle; width: auto;">
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								F_NAME
+							</span>
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								L_NAME
+							</span>
+							<span class="display-none">&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block;">
+								<a href="${clickthrough('membership_card_number')}" target="_blank" title="#123456789" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">#123456789</a>
+							</span>
+							<br class="display-none" />
+							<span style="display: inline-block; white-space: nowrap;">
+								BLACK LEVEL
+							</span>
+							<span class="display-none">&#160;&#160;|&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block; white-space: nowrap;">
+								<a href="${clickthrough('membership_benefits')}" target="_blank" title="MEMBERSHIP BENEFITS" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: underline;">MEMBERSHIP BENEFITS</a>
+							</span>
+						</td>
+						<td align="right" valign="middle" width="125" style="text-align: right; margin-left: auto; margin-right: 0; vertical-align: middle; width: 125px;">
+							<img src="http://via.placeholder.com/300x100" width="150" style="border: none; display: block; margin-left: auto; margin-right: 0; max-width: 150px; text-align: right; vertical-align: middle; width: 100%;" />
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End Module: Account Details - Black Level Members ||| -->
+
+	<!-- ##################################
+	<#elseif API_MEMBERSHIP_LEVEL == 'RED'>
+	################################### -->
+
+	<!-- ||| Begin Module: Account Details - Red Level Members -->
+	<table bgcolor="#730b12" border="0" cellpadding="0" cellspacing="0" width="100%" class="red-level-background-linear-gradient" style="background-color: #730b12; border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 15px; padding-left: 25px; padding-right: 25px; padding-top: 15px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" valign="middle" width="auto" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; font-size: 12px; font-style: normal; font-weight: 400; line-height: 15px; text-align: left; vertical-align: middle; width: auto;">
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								F_NAME
+							</span>
+							<span style="display: inline-block; font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap;">
+								L_NAME
+							</span>
+							<span class="display-none">&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block;">
+								<a href="${clickthrough('membership_card_number')}" target="_blank" title="#123456789" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">#123456789</a>
+							</span>
+							<br class="display-none" />
+							<span style="display: inline-block; white-space: nowrap;">
+								RED LEVEL
+							</span>
+							<span class="display-none">&#160;&#160;|&#160;&#160;</span>
+							<span class="display-block" style="display: inline-block; white-space: nowrap;">
+								<a href="${clickthrough('membership_benefits')}" target="_blank" title="MEMBERSHIP BENEFITS" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: underline;">MEMBERSHIP BENEFITS</a>
+							</span>
+						</td>
+						<td align="right" valign="middle" width="125" style="text-align: right; margin-left: auto; margin-right: 0; vertical-align: middle; width: 125px;">
+							<img src="http://via.placeholder.com/300x100" width="150" style="border: none; display: block; margin-left: auto; margin-right: 0; max-width: 150px; text-align: right; vertical-align: middle; width: 100%;" />
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End Module: Account Details - Red Level Members ||| -->
+
+	<!-- #
+		</#if>
+	## -->
+
+</div>
+
+<!-- ######################
+# Email Hero HTML Modules #
+####################### -->
+<div id="heroDefault" style="display: none;">
+
+	<!-- ||| Begin One (1/1) Column Hero Image v1.0.0 -->
+	<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff; border-spacing: 0; width: 100%;">
+		<tr>
+			<td align="left" valign="top" style="text-align: left; vertical-align: top;">
+				<img id="heroImage" src="http://via.placeholder.com/1400x700/808000/ffffff" alt="" width="700" style="border: none; color: #483b05; display: block; font-family: 'Century Gothic', Arial, sans-serif; font-size: 16px; font-weight: 400; max-width: 700px; text-align: left; text-decoration: none; vertical-align: top; width: 100%;" />
+			</td>
+		</tr>
+	</table>
+	<!-- End One (1/1) Column Hero Image v1.0.0 ||| -->
+
+</div>
+
+<!-- ######################
+# Email Body HTML Modules #
+####################### -->
+<div id="bodyDefault" style="display: none;">
+
+	<!-- ||| Begin One [1/1] Column Copy v1.0.0 -->
+	<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff; border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 35px; padding-left: 80px; padding-right: 80px; padding-top: 35px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" width="auto" style="text-align: left; width: auto;">
+							<table border="0" cellpadding="0" cellspacing="0" width="30px" style="border-spacing: 0; width: 30px;">
+								<tr>
+									<td bgcolor="ad9a63" height="1" width="30" style="background-color: #ad9a63; font-size: 1px; height: 5px; min-height: 5px; max-height: 5px; line-height: 5px; width: 30px;">
+										&nbsp;
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td id="headlineText" align="left" width="auto" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; font-size: 28px; font-style: normal; font-weight: 400; line-height: 36px; padding-top: 20px; text-align: left; width: auto;">
+							LOREM IPSUM DOLAR SIT AMET
+						</td>
+					</tr>
+					<tr>
+						<td id="articleText" align="left" width="auto" style="color: #4c524e; font-family: 'Century Gothic', Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: 400; line-height: 28px; padding-top: 10px; text-align: left; width: auto;">
+							Phasellus interdum dignissim ipsum. Sed porttitor vehicula dolor, et scelerisque tortor condimentum ut. Nam sit amet urna ac quam suscipit dignissim. Duis semper lorem ac eros venenatis tincidunt. Donec tristique magna nec accumsan bibendum. Fusce et dictum eros, et semper risus. Duis hendrerit ut mauris in rhoncus.
+						</td>
+					</tr>
+				</table>
+				<!-- ### Begin Button Block -->
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" width="auto" style="padding-top: 20px; text-align: left; width: auto;">
+							<!-- ######################################################
+							<#assign PRIMARY_CTA = "GET INSPIRED">
+							<#assign TD_WIDTH = PRIMARY_CTA?length * 10>
+							<#assign TABLE_WIDTH = (PRIMARY_CTA?length * 10) + 40 + 40>
+							####################################################### -->
+							<table border="0" cellpadding="0" cellspacing="0" width="${TABLE_WIDTH}" style="border-spacing: 0; width: ${TABLE_WIDTH}px;">
+								<tr>
+									<td bgcolor="#ae9a64" style="background: #ae9a64; color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 20px; padding-bottom: 15px; padding-left: 20px; padding-right: 20px; padding-top: 15px; text-align: left; width: ${TD_WIDTH}px;">
+										<a id="ctaText" class="ctaUrl" href="#" target="_blank" title="" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">
+											${PRIMARY_CTA}
+										</a>
+									</td>
+									<td bgcolor="#ae9a64" style="background: #ae9a64; color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 20px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: center; width: 10px;">
+										<a class="ctaUrl" href="#" target="_blank" title="" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">
+											&gt;
+										</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<!-- End Button Block ### -->
+			</td>
+		</tr>
+	</table>
+	<!-- End One [1/1] Column Copy v1.0.0 ||| -->
+
+</div>
+<div id="bodyAlt1" style="display: none;">
+
+	<!-- ||| Begin One [1/1] Column Copy (Gray Background) v1.0.0 -->
+	<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff; border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-left: 25px; padding-right: 25px;">
+				<table bgcolor="#ced5ce" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ced5ce; border-spacing: 0; width: 100%;">
+					<tr>
+						<td style="padding-bottom: 35px; padding-left: 55px; padding-right: 55px; padding-top: 35px;">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+								<tr>
+									<td align="left" width="auto" style="text-align: left; width: auto;">
+										<table border="0" cellpadding="0" cellspacing="0" width="30px" style="border-spacing: 0; width: 30px;">
+											<tr>
+												<td bgcolor="ad9a63" height="1" width="30" style="background-color: #ad9a63; font-size: 1px; height: 5px; min-height: 5px; max-height: 5px; line-height: 5px; width: 30px;">
+													&nbsp;
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+								<tr>
+									<td align="left" width="auto" style="color: #000000; font-family: 'Century Gothic', Arial, sans-serif; font-size: 28px; font-style: normal; font-weight: 400; line-height: 36px; padding-top: 20px; text-align: left; width: auto;">
+										LOREM IPSUM DOLAR SIT AMET
+									</td>
+								</tr>
+								<tr>
+									<td align="left" width="auto" style="color: #4c524e; font-family: 'Century Gothic', Arial, sans-serif; font-size: 16px; font-style: normal; font-weight: 400; line-height: 28px; padding-top: 10px; text-align: left; width: auto;">
+										Phasellus interdum dignissim ipsum. Sed porttitor vehicula dolor, et scelerisque tortor condimentum ut. Nam sit amet urna ac quam suscipit dignissim. Duis semper lorem ac eros venenatis tincidunt. Donec tristique magna nec accumsan bibendum. Fusce et dictum eros, et semper risus. Duis hendrerit ut mauris in rhoncus.
+									</td>
+								</tr>
+							</table>
+							<!-- ### Begin Button Block -->
+							<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+								<tr>
+									<td align="left" width="auto" style="padding-top: 20px; text-align: left; width: auto;">
+										<!-- ###############################
+										<#assign PRIMARY_CTA = "GET INSPIRED">
+										<#assign TD_WIDTH = PRIMARY_CTA?length * 10>
+										<#assign TABLE_WIDTH = (PRIMARY_CTA?length * 10) + 40 + 40>
+										################################ -->
+										<table border="0" cellpadding="0" cellspacing="0" width="${TABLE_WIDTH}" style="border-spacing: 0; width: ${TABLE_WIDTH}px;">
+											<tr>
+												<td bgcolor="#ae9a64" style="background: #ae9a64; color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 20px; padding-bottom: 15px; padding-left: 20px; padding-right: 20px; padding-top: 15px; text-align: left; width: ${TD_WIDTH}px;">
+													<a href="${clickthrough('carousel')}" target="_blank" title="" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">
+														${PRIMARY_CTA}
+													</a>
+												</td>
+												<td bgcolor="#ae9a64" style="background: #ae9a64; color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 20px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: center; width: 10px;">
+													<a href="${clickthrough('carousel')}" target="_blank" title="" style="color: #ffffff; font-family: 'Century Gothic', Arial, sans-serif; text-decoration: none;">
+														&gt;
+													</a>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<!-- End Button Block ### -->
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End One [1/1] Column Copy (Gray Background) v1.0.0 ||| -->
+
+</div>
+
+<!-- ########################
+# Email Footer HTML Modules #
+######################### -->
+<div id="footerDefault" style="display: none;">
+
+	<!-- /// Begin Email Footer Table -->
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+		<tr>
+			<td style="padding-bottom: 8px; padding-left: 4px; padding-right: 4px; padding-top: 8px;">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+					<tr>
+						<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+							GHA Loyalty DMCC
+						</td>
+					</tr>
+					<tr>
+						<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+							21st Floor, Jumeirah Business Center 5 Tower
+						</td>
+					</tr>
+					<tr>
+						<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+							PO Box 487771
+						</td>
+					</tr>
+					<tr>
+						<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; padding-bottom: 12px; text-align: left;">
+							Dubai, UAE
+						</td>
+					</tr>
+					<tr>
+						<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+							&copy; ${TIMESTAMP?string("yyyy")} Global Hotel Alliance. All Rights Reserved.
+						</td>
+					</tr>
+					<tr>
+						<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+							DISCOVERY's
+							<a href="${clickthrough('privacy_policy')}" target="_blank" title="" style="color: #888888; text-decoration: underline;">privacy policy</a>.
+							<a href="${clickthrough('unsubscribe')}" target="_blank" title="" style="color: #888888; text-decoration: underline;">Unsubscribe</a>.
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End Email Footer Table \\\ -->
+
+</div>
+	</body>
+</html>

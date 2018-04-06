@@ -785,7 +785,7 @@
 
 
 <div style="background: #FA8072; border-bottom: 1px solid #DC143C; border-top: 1px solid #DC143C; font-size: .875rem; font-weight: 700; padding: 1rem; width: auto;">
-	Preheader
+	Snippet Text and View Online Link
 </div>
 
 
@@ -800,6 +800,62 @@
 						<span class="display-block" style="display: inline-block; white-space: nowrap;">
 							Preheader text goes here
 					</td>
+					<td align="right" valign="top" style="color: #888888; font-family: 'Century Gothic', Arial, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: right; vertical-align: top;">
+						<span class="display-block" style="display: inline-block; white-space: nowrap;">
+							Is this email not displaying correctly?
+						</span>
+						<span class="display-block" style="display: inline-block; white-space: nowrap;">
+							<a href="${clickthrough('view_online')}" target="_blank" title="${SUPP_VIEW_ONLINE}" style="color: #888888; text-decoration: underline;">
+								View in browser
+							</a>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- End Email Preheader Table \\\ -->
+
+
+
+<div style="background: #FA8072; border-bottom: 1px solid #DC143C; border-top: 1px solid #DC143C; font-size: .875rem; font-weight: 700; padding: 1rem; width: auto;">
+	Snippet Text Only
+</div>
+
+
+
+<!-- /// Begin Email Preheader Table -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+	<tr>
+		<td style="padding-bottom: 8px; padding-left: 4px; padding-right: 4px; padding-top: 8px;">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+				<tr>
+					<td align="left" valign="top" style="color: #888888; font-family: 'Century Gothic', Arial, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left; vertical-align: top;">
+						<span class="display-block" style="display: inline-block; white-space: nowrap;">
+							Preheader text goes here
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- End Email Preheader Table \\\ -->
+
+
+
+<div style="background: #FA8072; border-bottom: 1px solid #DC143C; border-top: 1px solid #DC143C; font-size: .875rem; font-weight: 700; padding: 1rem; width: auto;">
+	View Online Link Only
+</div>
+
+
+
+<!-- /// Begin Email Preheader Table -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+	<tr>
+		<td style="padding-bottom: 8px; padding-left: 4px; padding-right: 4px; padding-top: 8px;">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+				<tr>
 					<td align="right" valign="top" style="color: #888888; font-family: 'Century Gothic', Arial, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: right; vertical-align: top;">
 						<span class="display-block" style="display: inline-block; white-space: nowrap;">
 							Is this email not displaying correctly?
@@ -2372,6 +2428,57 @@
 	</tr>
 </table>
 <!-- End Email Body Table \\\ -->
+
+
+
+<div style="background: #FA8072; border-bottom: 1px solid #DC143C; border-top: 1px solid #DC143C; font-size: .875rem; font-weight: 700; padding: 1rem; width: auto;">
+	Footer
+</div>
+
+
+
+<!-- /// Begin Email Footer Table -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+	<tr>
+		<td style="padding-bottom: 8px; padding-left: 4px; padding-right: 4px; padding-top: 8px;">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-spacing: 0; width: 100%;">
+				<tr>
+					<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+						GHA Loyalty DMCC
+					</td>
+				</tr>
+				<tr>
+					<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+						21st Floor, Jumeirah Business Center 5 Tower
+					</td>
+				</tr>
+				<tr>
+					<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+						PO Box 487771
+					</td>
+				</tr>
+				<tr>
+					<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; padding-bottom: 12px; text-align: left;">
+						Dubai, UAE
+					</td>
+				</tr>
+				<tr>
+					<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+						&copy; ${TIMESTAMP?string("yyyy")} Global Hotel Alliance. All Rights Reserved.
+					</td>
+				</tr>
+				<tr>
+					<td align="left" class="text-align-center" style="color: #888888; font-family: 'Century Gothic', Arial, Helvetica, sans-serif; font-size: 10px; font-weight: 400; line-height: normal; text-align: left;">
+						DISCOVERY's
+						<a href="${clickthrough('privacy_policy')}" target="_blank" title="" style="color: #888888; text-decoration: underline;">privacy policy</a>.
+						<a href="${clickthrough('unsubscribe')}" target="_blank" title="" style="color: #888888; text-decoration: underline;">Unsubscribe</a>.
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- End Email Footer Table \\\ -->
 
 
 
