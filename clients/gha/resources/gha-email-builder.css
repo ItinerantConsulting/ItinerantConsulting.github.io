@@ -3,12 +3,38 @@
  */
 
 label.input-group-text {
-	width: 240px;
+	width: auto;
 }
+
 
 /*
  * Custom styles
  */
+
+ #link-tracking-inputs {
+	border: 2px solid #808080;
+	height: 150px;
+	overflow: scroll;
+	padding: 10px;
+ }
+
+ #link-tracking-preview {
+	height: 150px;
+	text-align: left;
+}
+
+#preview-temp-container {
+	max-width: 700px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#template-inputs {
+	border: 2px solid #808080;
+	height: 500px;
+	overflow: scroll;
+	padding: 10px;
+}
 
 #template-preview {
 	background: #f0f0f0;
@@ -16,12 +42,6 @@ label.input-group-text {
 	height: 500px;
 	margin: 0 auto;
 	overflow: scroll;
-}
-
-#preview-temp-container {
-	max-width: 700px;
-	width: 100%;
-	margin: 0 auto;
 }
 
 .desktop-device-preview {
@@ -48,7 +68,24 @@ label.input-group-text {
 	width: 480px;
 }
 
-
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: #d3d3d3;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #d3d3d3;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #d3d3d3;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: #d3d3d3;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+	color: #d3d3d3;
+}
+::placeholder { /* Most modern browsers support this now. */
+	color: #d3d3d3;
+}
 
 
 
